@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ts. Shahfiq Nashrah | IT Program & Delivery Lead | P.Tech, MBA</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom glow effects and subtle grid background */
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+    }
+    .dark .bg-grid-pattern {
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col antialiased selection:bg-brand-600 selection:text-white">
+
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-700 to-teal-500 flex items-center justify-center text-white font-bold shadow-md shadow-brand-600/20 group-hover:scale-105 transition-transform">
+          SN
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold tracking-tight text-base sm:text-lg group-hover:text-brand-600 transition-colors leading-tight">Ts. Shahfiq Nashrah</span>
+          <span class="text-[10px] font-mono font-medium text-slate-500 dark:text-slate-400">P.Tech, MBA | Delivery Lead</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
+        <a href="#capabilities" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Expertise</a>
+        <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Career Journey</a>
+        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Implementations</a>
+        <a href="#credentials" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Credentials</a>
+        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Dark Mode Toggle Button -->
+        <button id="themeToggle" aria-label="Toggle theme" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/70 dark:bg-slate-800/70 text-slate-600 dark:text-slate-300 hover:border-brand-500 transition-colors">
+          <i id="themeIcon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white shadow-sm shadow-brand-600/25 transition-all hover:shadow-brand-600/40">
+          <span>Connect</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+
+        <!-- Mobile menu hamburger -->
+        <button id="mobileMenuBtn" aria-label="Open mobile menu" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300">
+          <i id="menuIcon" data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-5 space-y-2">
+      <a href="#about" class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+      <a href="#capabilities" class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Expertise</a>
+      <a href="#experience" class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Career Journey</a>
+      <a href="#projects" class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Implementations</a>
+      <a href="#credentials" class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Credentials</a>
+      <a href="#contact" class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+    </div>
+  </header>
+
+  <main class="flex-grow pt-16">
+    <section id="hero" class="relative overflow-hidden bg-grid-pattern pt-20 pb-20 md:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-14">
+          
+          <div class="w-full lg:w-3/5 text-center lg:text-left space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/70 text-emerald-800 dark:text-emerald-300">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Available for IT Program Delivery & Mid-Senior Enablement Roles
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.2]">
+              Bridging <span class="bg-gradient-to-r from-brand-600 via-teal-500 to-indigo-600 bg-clip-text text-transparent">Business & Technology</span> through Execution.
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+              I'm <strong class="text-slate-900 dark:text-white">Ts. Shahfiq Nashrah</strong> (P.Tech, MBA) — a Technology & Business Transformation Professional with 10 years of experience delivering enterprise systems, SaaS implementations, and cross-functional programs across corporate, institutional, and startup ecosystems.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+              <a href="#projects" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm shadow-md shadow-brand-600/20 transition-all hover:scale-105">
+                Explore Enterprise Implementations
+              </a>
+              <a href="#experience" class="px-5 py-2.5 rounded-xl bg-slate-200/80 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium text-sm hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">
+                View Career Path
+              </a>
+              <a href="mailto:shahfiqnashrah@gmail.com" class="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-brand-500 text-slate-700 dark:text-slate-300 text-sm font-medium transition-all">
+                Direct Inquiries
+              </a>
+            </div>
+
+            <!-- Profile badges & links -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3 text-xs text-slate-600 dark:text-slate-400">
+              <span class="inline-flex items-center gap-1.5 font-medium bg-slate-100 dark:bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-600"></i> MBOT Professional Technologist (PT24090184)
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-medium bg-slate-100 dark:bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+                <i data-lucide="award" class="w-3.5 h-3.5 text-amber-500"></i> IIBA Member (68546873)
+              </span>
+              <a href="https://www.linkedin.com/in/shahfiq-nashrah" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1.5 font-medium text-brand-600 dark:text-brand-400 hover:underline">
+                <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn Profile
+              </a>
+            </div>
+          </div>
+
+          <!-- Professional Identity Card -->
+          <div class="w-full lg:w-2/5 flex justify-center">
+            <div class="relative w-72 h-80 sm:w-88 sm:h-96 group">
+              <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-600 via-teal-500 to-indigo-600 rounded-3xl blur-xl opacity-40 group-hover:opacity-70 transition duration-500"></div>
+              
+              <div class="relative w-full h-full rounded-2xl overflow-hidden bg-slate-900 border border-white/20 shadow-2xl flex flex-col justify-between p-6 text-white">
+                <div class="flex items-center justify-between border-b border-slate-700/60 pb-3">
+                  <div>
+                    <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest block">Executive Profile</span>
+                    <span class="text-base font-bold">Ts. Shahfiq Nashrah</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">P.Tech</span>
+                </div>
+
+                <div class="space-y-3 font-mono text-xs text-slate-300">
+                  <div class="flex justify-between items-center bg-slate-800/60 p-2 rounded-lg">
+                    <span class="text-slate-400">Total Experience:</span>
+                    <span class="text-white font-bold">10+ Years</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-slate-800/60 p-2 rounded-lg">
+                    <span class="text-slate-400">Focus:</span>
+                    <span class="text-white">IT Delivery & Service Enablement</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-slate-800/60 p-2 rounded-lg">
+                    <span class="text-slate-400">Primary Locations:</span>
+                    <span class="text-white">Kampar, Perak / Setapak, KL</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-slate-800/60 p-2 rounded-lg">
+                    <span class="text-slate-400">Academic:</span>
+                    <span class="text-white">MBA (UiTM) | BTech (UTP)</span>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-brand-800/80 to-slate-800/90 rounded-xl p-3 border border-brand-500/30 text-xs">
+                  <p class="text-emerald-300 font-semibold">Specialization</p>
+                  <p class="text-[11px] text-slate-300 leading-tight mt-0.5">Enterprise Systems, Pricing Governance, Cross-Functional Team Leadership & Digital Transformation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white dark:bg-slate-900 border-y border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Background & Summary</h2>
+          <h3 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">About Shahfiq Nashrah</h3>
+          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+            Operating at the intersection of business analysis, program delivery, and service enablement.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-7 space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+            <p>
+              I am a technology and business transformation professional with <strong>10 years of experience</strong> delivering enterprise systems, digital initiatives, and cross-functional programs across corporate, academic, and institutional environments.
+            </p>
+            <p>
+              My expertise spans <strong>business analysis, IT program & project management, and service enablement</strong> — bridging strategy, execution, and compliance. Throughout my career, I have managed multi-stakeholder initiatives, guided end-to-end SDLC lifecycles, and driven measurable outcomes including cost avoidance, revenue protection, and operational efficiency.
+            </p>
+            <p>
+              Having collaborated with global teams in the US, UK, Canada, India, and Australia, I am comfortable steering complex requirements into scalable, execution-ready enterprise solutions while adhering to rigorous governance standards such as <strong>ISO 9001, ISO 27001</strong>, and enterprise cybersecurity frameworks.
+            </p>
+
+            <div class="pt-3">
+              <h4 class="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-2.5">Key Pillars:</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                <div class="flex items-start gap-2 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-brand-600 mt-0.5 shrink-0"></i>
+                  <span><strong>Strategic Alignment:</strong> Linking corporate objectives with actionable IT project scopes.</span>
+                </div>
+                <div class="flex items-start gap-2 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-brand-600 mt-0.5 shrink-0"></i>
+                  <span><strong>Revenue & Governance:</strong> Overseeing pricebooks, NPIs, and contractual documentation.</span>
+                </div>
+                <div class="flex items-start gap-2 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-brand-600 mt-0.5 shrink-0"></i>
+                  <span><strong>Process Optimization:</strong> Applying Lean Six Sigma (Green Belt) to streamline delivery.</span>
+                </div>
+                <div class="flex items-start gap-2 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-brand-600 mt-0.5 shrink-0"></i>
+                  <span><strong>Cross-Functional Leadership:</strong> Collaborating with sales, engineering, operations, and leadership.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fast stats counters -->
+          <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 text-center">
+              <span class="block text-3xl sm:text-4xl font-extrabold text-brand-600 dark:text-brand-400">10+</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1 block">Years IT Experience</span>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 text-center">
+              <span class="block text-3xl sm:text-4xl font-extrabold text-brand-600 dark:text-brand-400">12</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1 block">Global Pricebook Releases</span>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 text-center">
+              <span class="block text-3xl sm:text-4xl font-extrabold text-brand-600 dark:text-brand-400">$50k+</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1 block">Cost Avoidance Achieved</span>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 text-center">
+              <span class="block text-3xl sm:text-4xl font-extrabold text-brand-600 dark:text-brand-400">6+</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1 block">Enterprise SaaS & PaaS Rolled Out</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="capabilities" class="py-20 bg-slate-50 dark:bg-slate-950">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Competencies</h2>
+          <h3 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">Core Capabilities & Tools</h3>
+          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm">
+            Disciplines, frameworks, and enterprise software platforms utilized to drive business delivery.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-4">
+              <i data-lucide="briefcase" class="w-5 h-5"></i>
+            </div>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Program & Project Delivery</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Full SDLC lifecycle oversight, agile/scrum coordination, dependency and risk management.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Microsoft Project</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Agile / Scrum</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Jira & Confluence</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Risk Management</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Sourcing Strategy</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950/60 flex items-center justify-center text-teal-600 dark:text-teal-400 mb-4">
+              <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+            </div>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Business & Technical Analysis</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Requirements engineering (CPRE / CBAP-aligned), process mapping, financial modelling.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Requirements Spec</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Microsoft Visio / Lucidchart</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Power BI & SQL</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Financial Modelling</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Kaizen / Lean Six Sigma</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4">
+              <i data-lucide="shield" class="w-5 h-5"></i>
+            </div>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Governance & Systems</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Commercial pricing frameworks, NPI/PCR workflows, enterprise ERPs, and compliance.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Dynamics 365 / Oracle EBS</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">SITS:Vision (Tribal)</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">ISO 9001 / ISO 27001</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Pricebook Governance</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Terms & Conditions</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-white dark:bg-slate-900 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+          <h2 class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Track Record</h2>
+          <h3 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">Career Journey</h3>
+          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm">
+            10-year professional progression across multinational corporations, startups, and universities.
+          </p>
+        </div>
+
+        <div class="relative border-l border-slate-200 dark:border-slate-800 ml-4 md:ml-36 space-y-12">
+          
+          <!-- Experience item 1 -->
+          <div class="relative pl-8 md:pl-10">
+            <span class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full border-4 border-white dark:border-slate-900 bg-brand-600"></span>
+            <div class="hidden md:block absolute -left-44 top-1 text-xs font-mono font-semibold text-slate-500 dark:text-slate-400 w-36 text-right">
+              Jun 2022 — Dec 2025
+            </div>
+            <div>
+              <span class="md:hidden text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 block mb-1">Jun 2022 — Dec 2025 (3 yrs 7 mos)</span>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white">Program Analyst / Delivery Lead (Service Enablement)</h4>
+              <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mb-2">Quantum Corporation • Global Service Sales</p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                Led global service enablement initiatives spanning pricing governance, product launches, and cross-regional delivery coordination across US time zones.
+              </p>
+              <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-600 font-bold">•</span>
+                  <span>Actively delivered <strong>12 global pricebook releases</strong>, preventing revenue leakage and achieving an estimated cost avoidance of over <strong>USD 50,000</strong>.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-600 font-bold">•</span>
+                  <span>Coordinated critical commercial and contractual documentation releases (3 warranty document updates, 2 Sales & Service T&Cs, 1 partner agreement).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-600 font-bold">•</span>
+                  <span>Collaborated with R&D, Product Management, Legal, Field Delivery, and Global Services Centre on New Product Introductions (NPI) and Price Change Requests (PCR).</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience item 2 -->
+          <div class="relative pl-8 md:pl-10">
+            <span class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full border-4 border-white dark:border-slate-900 bg-slate-400 dark:bg-slate-600"></span>
+            <div class="hidden md:block absolute -left-44 top-1 text-xs font-mono font-semibold text-slate-500 dark:text-slate-400 w-36 text-right">
+              Jun 2018 — Jun 2022
+            </div>
+            <div>
+              <span class="md:hidden text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 block mb-1">Jun 2018 — Jun 2022 (4 yrs 1 mo)</span>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white">Senior Executive / IT Project Manager</h4>
+              <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mb-2">Universiti Teknologi PETRONAS • IT & Media Services</p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                Spearheaded campus-wide IT transformation projects (Genesys Phase II), managing vendor governance, RFP/tenders, risk management, and systems delivery.
+              </p>
+              <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-600 font-bold">•</span>
+                  <span>Successfully converted the university’s biggest congress (ESTCON 2020) to virtual during COVID-19, accommodating 750 presenters from 27 countries.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-600 font-bold">•</span>
+                  <span>Implemented Advancement & Donation System (UDonate/UTrust), improving process efficiency by 20% and generating over RM20,000 in early donations.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-600 font-bold">•</span>
+                  <span>Maintained compliance with ISO 9001:2015, ISO 27001:2013, and PETRONAS Cybersecurity Framework.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience item 3 -->
+          <div class="relative pl-8 md:pl-10">
+            <span class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full border-4 border-white dark:border-slate-900 bg-slate-400 dark:bg-slate-600"></span>
+            <div class="hidden md:block absolute -left-44 top-1 text-xs font-mono font-semibold text-slate-500 dark:text-slate-400 w-36 text-right">
+              Aug 2017 — Mar 2018
+            </div>
+            <div>
+              <span class="md:hidden text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 block mb-1">Aug 2017 — Mar 2018 (8 mos)</span>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white">IT & Innovation Manager</h4>
+              <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mb-2">BCA Digital Biz Sdn Bhd</p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                Co-founded and delivered CAPASA, a national-scale e-commerce and retail platform for Perbadanan Perwira Niaga Malaysia (PERNAMA).
+              </p>
+              <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-600 font-bold">•</span>
+                  <span>Led product direction, user workshops with PERNAMA military leadership, and delivery across Army Camps (Lumut, Kluang, Wangsa Keramat).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-600 font-bold">•</span>
+                  <span>Built startup foundations alongside co-founding initiatives Transfeed (Bid-IT Finalist) and Terapi.my (TERAJU Superb RM500k recipient).</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience item 4 -->
+          <div class="relative pl-8 md:pl-10">
+            <span class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full border-4 border-white dark:border-slate-900 bg-slate-400 dark:bg-slate-600"></span>
+            <div class="hidden md:block absolute -left-44 top-1 text-xs font-mono font-semibold text-slate-500 dark:text-slate-400 w-36 text-right">
+              Sep 2015 — Mar 2017
+            </div>
+            <div>
+              <span class="md:hidden text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 block mb-1">Sep 2015 — Mar 2017 (1 yr 7 mos)</span>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white">Graduate Consultant (APAC Higher Education)</h4>
+              <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mb-2">Tribal Group (UK-headquartered enterprise vendor)</p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Authored requirement specifications, configured modules (Accommodation, Course Registration, Graduation) on SITS:Vision, and trained stakeholders across APAC academic institutions.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-950">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <h2 class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Deliverables</h2>
+            <h3 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">Systems & Implementations</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm">Enterprise SaaS implementations, digital transformation initiatives, and platforms delivered.</p>
+          </div>
+
+          <!-- Project Filter Chips -->
+          <div class="flex flex-wrap gap-2" id="projectFilters">
+            <button data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white transition-all">All</button>
+            <button data-filter="enterprise" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Enterprise & SaaS</button>
+            <button data-filter="enablement" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Service Enablement</button>
+            <button data-filter="startup" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Digital Retail & Startups</button>
+          </div>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="projectsContainer">
+          
+          <!-- Item 1 -->
+          <div class="project-card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 transition duration-300 flex flex-col" data-category="enablement">
+            <div class="h-44 bg-gradient-to-tr from-brand-700 to-teal-700 p-6 flex flex-col justify-between text-white relative">
+              <span class="self-start text-[10px] font-mono font-bold uppercase tracking-wider bg-black/35 px-2 py-0.5 rounded">Quantum Global</span>
+              <div>
+                <h4 class="text-xl font-bold tracking-tight">Global Pricebook & NPI Governance</h4>
+                <p class="text-xs text-emerald-100 mt-1">12 Global Pricebook Releases • Cost Avoidance</p>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Streamlined end-to-end service delivery workflows across Americas, APAC, and EMEA. Formulated pricing models and commercial terms preventing revenue leakage.
+              </p>
+              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-brand-700 dark:text-brand-400 font-semibold flex items-center justify-between">
+                <span>Result: USD 50,000+ Savings</span>
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="project-card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 transition duration-300 flex flex-col" data-category="enterprise">
+            <div class="h-44 bg-gradient-to-tr from-blue-700 to-indigo-700 p-6 flex flex-col justify-between text-white relative">
+              <span class="self-start text-[10px] font-mono font-bold uppercase tracking-wider bg-black/35 px-2 py-0.5 rounded">UTP Genesys II</span>
+              <div>
+                <h4 class="text-xl font-bold tracking-tight">UEvent, UDonate & UTrust</h4>
+                <p class="text-xs text-indigo-100 mt-1">Campus-Wide SaaS & PaaS Implementation</p>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Spearheaded deployment of event platforms, alumni engagement databases, and the online donation platform, cutting operating costs by RM80k/yr.
+              </p>
+              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-indigo-600 dark:text-indigo-400 font-semibold flex items-center justify-between">
+                <span>20% Process Efficiency Boost</span>
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="project-card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 transition duration-300 flex flex-col" data-category="startup">
+            <div class="h-44 bg-gradient-to-tr from-amber-600 to-rose-700 p-6 flex flex-col justify-between text-white relative">
+              <span class="self-start text-[10px] font-mono font-bold uppercase tracking-wider bg-black/35 px-2 py-0.5 rounded">PERNAMA / BCA</span>
+              <div>
+                <h4 class="text-xl font-bold tracking-tight">CAPASA Retail Platform</h4>
+                <p class="text-xs text-amber-100 mt-1">National Military Store E-Marketplace</p>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Co-founded and delivered a national hybrid mobile & web ordering platform deployed across military bases including TLDM Lumut and RAMD Kluang.
+              </p>
+              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-amber-600 dark:text-amber-400 font-semibold flex items-center justify-between">
+                <span>Multi-Camp Live Deployment</span>
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="project-card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 transition duration-300 flex flex-col" data-category="enterprise">
+            <div class="h-44 bg-gradient-to-tr from-cyan-700 to-blue-800 p-6 flex flex-col justify-between text-white relative">
+              <span class="self-start text-[10px] font-mono font-bold uppercase tracking-wider bg-black/35 px-2 py-0.5 rounded">Congress & Systems</span>
+              <div>
+                <h4 class="text-xl font-bold tracking-tight">ESTCON 2020 Virtual Congress</h4>
+                <p class="text-xs text-cyan-100 mt-1">International Congress Pivot • COVID-19</p>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Led Application & Systems Committee to seamlessly convert the international congress into a virtual experience with 750 presenters from 27 countries.
+              </p>
+              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-cyan-600 dark:text-cyan-400 font-semibold flex items-center justify-between">
+                <span>1,000+ Attending Delegates</span>
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="project-card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 transition duration-300 flex flex-col" data-category="enterprise">
+            <div class="h-44 bg-gradient-to-tr from-emerald-800 to-slate-800 p-6 flex flex-col justify-between text-white relative">
+              <span class="self-start text-[10px] font-mono font-bold uppercase tracking-wider bg-black/35 px-2 py-0.5 rounded">Tribal Group</span>
+              <div>
+                <h4 class="text-xl font-bold tracking-tight">SITS:Vision APAC Consulting</h4>
+                <p class="text-xs text-emerald-100 mt-1">Higher Education ERP Modules</p>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Delivered full configuration for Course Registration, Accommodation, and Graduation modules with user journey specifications and testing cycles.
+              </p>
+              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center justify-between">
+                <span>APAC Higher Ed Standards</span>
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="project-card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 transition duration-300 flex flex-col" data-category="startup">
+            <div class="h-44 bg-gradient-to-tr from-purple-800 to-indigo-900 p-6 flex flex-col justify-between text-white relative">
+              <span class="self-start text-[10px] font-mono font-bold uppercase tracking-wider bg-black/35 px-2 py-0.5 rounded">Startup Ecosystem</span>
+              <div>
+                <h4 class="text-xl font-bold tracking-tight">TransFeed & Terapi.my</h4>
+                <p class="text-xs text-purple-200 mt-1">Mobility & Digital On-Demand Services</p>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Pioneered real-time transit telemetry (Transfeed - SME Bank Finalist) and service platform operations with MDEC e-Rezeki and TERAJU Superb grants.
+              </p>
+              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-purple-600 dark:text-purple-400 font-semibold flex items-center justify-between">
+                <span>National Grant & Accelerator Finalist</span>
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="credentials" class="py-20 bg-white dark:bg-slate-900 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Qualifications</h2>
+          <h3 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">Education & Certifications</h3>
+          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm">
+            Continuous professional mastery, academic background, and recognized industry badges.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Education Card -->
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-950/60 flex items-center justify-center text-brand-600">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white">Academic Qualifications</h4>
+            </div>
+
+            <div class="space-y-3 text-xs sm:text-sm">
+              <div class="border-b border-slate-200 dark:border-slate-700/60 pb-2">
+                <span class="font-bold text-slate-900 dark:text-white block">Master of Business Administration (MBA)</span>
+                <span class="text-slate-500">Arshad Ayub Graduate Business School, UiTM</span>
+                <div class="flex justify-between text-xs text-brand-600 dark:text-brand-400 font-medium mt-1">
+                  <span>CGPA: 3.59</span>
+                  <span>Dean's List Honoree</span>
+                </div>
+              </div>
+              
+              <div class="border-b border-slate-200 dark:border-slate-700/60 pb-2">
+                <span class="font-bold text-slate-900 dark:text-white block">BTech (Hons) Business Information System</span>
+                <span class="text-slate-500">Universiti Teknologi PETRONAS (UTP)</span>
+                <span class="text-xs text-slate-400 block mt-1">Second Class Upper (CGPA 3.08)</span>
+              </div>
+
+              <div>
+                <span class="font-bold text-slate-900 dark:text-white block">The Malay College Kuala Kangsar (MCKK)</span>
+                <span class="text-xs text-slate-500">Pure Science Stream (SPM 1A+, 5A, 1A-, 2B+)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional Affiliations & Awards -->
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950/60 flex items-center justify-center text-teal-600">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white">Affiliations & Honors</h4>
+            </div>
+
+            <ul class="space-y-3 text-xs sm:text-sm">
+              <li class="flex items-start gap-2">
+                <i data-lucide="badge-check" class="w-4 h-4 text-brand-600 mt-0.5 shrink-0"></i>
+                <div>
+                  <span class="font-semibold text-slate-900 dark:text-white">Professional Technologist (P.Tech)</span>
+                  <p class="text-xs text-slate-500">Malaysia Board of Technologists (PT24090184)</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="badge-check" class="w-4 h-4 text-brand-600 mt-0.5 shrink-0"></i>
+                <div>
+                  <span class="font-semibold text-slate-900 dark:text-white">Member, IIBA</span>
+                  <p class="text-xs text-slate-500">International Institute of Business Analysis (ID: 68546873)</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="trophy" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i>
+                <div>
+                  <span class="font-semibold text-slate-900 dark:text-white">MRANTI GAP Top 25 Finalist</span>
+                  <p class="text-xs text-slate-500">Global Accelerator Programme (2025)</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="trophy" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i>
+                <div>
+                  <span class="font-semibold text-slate-900 dark:text-white">UTP Innovation Accelerator (UToPIA)</span>
+                  <p class="text-xs text-slate-500">Sole Recipient (2024)</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Professional Training Badges -->
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 flex items-center justify-center text-indigo-600">
+                <i data-lucide="file-check" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white">Training & Accreditations</h4>
+            </div>
+
+            <div class="space-y-2.5 text-xs">
+              <div class="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-700">
+                <span class="font-medium text-slate-800 dark:text-slate-200">Lean Six Sigma (Green Belt)</span>
+                <span class="text-slate-400">PETRONAS CIA</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-700">
+                <span class="font-medium text-slate-800 dark:text-slate-200">Certified Business Analysis (CBAP)</span>
+                <span class="text-slate-400">IIBA</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-700">
+                <span class="font-medium text-slate-800 dark:text-slate-200">Execution Leadership Primer</span>
+                <span class="text-slate-400">PMI</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-700">
+                <span class="font-medium text-slate-800 dark:text-slate-200">ISO / IEC 27001</span>
+                <span class="text-slate-400">SIRIM STS</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-700">
+                <span class="font-medium text-slate-800 dark:text-slate-200">AI Skills Mastery</span>
+                <span class="text-slate-400">Coursiv.io</span>
+              </div>
+              <div class="flex justify-between items-center py-1">
+                <span class="font-medium text-slate-800 dark:text-slate-200">Req. Engineering (CPRE)</span>
+                <span class="text-slate-400">IREB</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <h2 class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Connect</h2>
+          <h3 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">Get in Touch</h3>
+          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm">
+            Interested in discussing IT program leadership, enterprise solution delivery, or advisory opportunities? Feel free to reach out.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+          
+          <!-- Contact Direct Info -->
+          <div class="md:col-span-2 space-y-6">
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Direct Details</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Immediate availability for roles. Available for discussion via email or phone.
+            </p>
+
+            <div class="space-y-4 pt-1">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-950/60 flex items-center justify-center text-brand-600">
+                  <i data-lucide="mail" class="w-4 h-4"></i>
+                </div>
+                <div class="text-xs">
+                  <p class="text-slate-400 uppercase font-semibold">Direct Email</p>
+                  <button id="copyEmailBtn" class="text-slate-800 dark:text-slate-200 font-medium hover:text-brand-600 flex items-center gap-1.5 group">
+                    <span>shahfiqnashrah@gmail.com</span>
+                    <i data-lucide="copy" class="w-3.5 h-3.5 opacity-60 group-hover:opacity-100"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-950/60 flex items-center justify-center text-brand-600">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                </div>
+                <div class="text-xs">
+                  <p class="text-slate-400 uppercase font-semibold">Phone / WhatsApp</p>
+                  <a href="tel:+60132500566" class="text-slate-800 dark:text-slate-200 font-medium hover:text-brand-600">
+                    +60 13-250 0566
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-950/60 flex items-center justify-center text-brand-600">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <div class="text-xs">
+                  <p class="text-slate-400 uppercase font-semibold">Locations</p>
+                  <p class="text-slate-800 dark:text-slate-200 font-medium">Kampar, Perak & Setapak, KL</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-950/60 flex items-center justify-center text-brand-600">
+                  <i data-lucide="linkedin" class="w-4 h-4"></i>
+                </div>
+                <div class="text-xs">
+                  <p class="text-slate-400 uppercase font-semibold">LinkedIn</p>
+                  <a href="https://www.linkedin.com/in/shahfiq-nashrah" target="_blank" rel="noreferrer" class="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+                    linkedin.com/in/shahfiq-nashrah
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Toast / Message Box (Never Alert) -->
+            <div id="toastMessage" class="hidden text-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 p-3 rounded-xl border border-emerald-300 dark:border-emerald-800 items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4"></i>
+              <span id="toastText">Email copied to clipboard!</span>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <form id="contactForm" class="md:col-span-3 space-y-4">
+            <div>
+              <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">Your Name / Organization</label>
+              <input type="text" id="name" required placeholder="e.g. Talent Acquisition / Corporate Lead" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">Email Address</label>
+              <input type="email" id="email" required placeholder="contact@organization.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">Message / Opportunity Scope</label>
+              <textarea id="message" rows="4" required placeholder="Provide details regarding the role, digital initiative, or consultation..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-all shadow-md shadow-brand-600/20 flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Send Message</span>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>&copy; <span id="year"></span> Ts. Shahfiq Nashrah Bin Muhammad Ashrah (P.Tech, MBA). All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="hover:text-brand-600 transition-colors">Top</a>
+        <a href="#experience" class="hover:text-brand-600 transition-colors">Journey</a>
+        <a href="#projects" class="hover:text-brand-600 transition-colors">Projects</a>
+        <a href="https://www.linkedin.com/in/shahfiq-nashrah" target="_blank" rel="noreferrer" class="hover:text-brand-600 transition-colors">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Dynamic current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dark / Light Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlElement.classList.add('dark');
+      updateThemeIcon(true);
+    } else {
+      htmlElement.classList.remove('dark');
+      updateThemeIcon(false);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = htmlElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeIcon(isDark);
+    });
+
+    function updateThemeIcon(isDark) {
+      if (isDark) {
+        themeIcon.setAttribute('data-lucide', 'sun');
+      } else {
+        themeIcon.setAttribute('data-lucide', 'moon');
+      }
+      lucide.createIcons();
+    }
+
+    // Mobile Navigation Drawer
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Project filtering functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-brand-600', 'text-white');
+          b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        });
+        btn.classList.add('bg-brand-600', 'text-white');
+        btn.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Safe clipboard copy helper (Using execCommand fallback)
+    function showNotification(text) {
+      const toast = document.getElementById('toastMessage');
+      const toastText = document.getElementById('toastText');
+      toastText.textContent = text;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 3500);
+    }
+
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    copyEmailBtn.addEventListener('click', () => {
+      const email = 'shahfiqnashrah@gmail.com';
+      const tempInput = document.createElement('textarea');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showNotification('Email copied: ' + email);
+      } catch (err) {
+        showNotification('Email: ' + email);
+      }
+      document.body.removeChild(tempInput);
+    });
+
+    // Contact Form submission handler
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      contactForm.reset();
+      showNotification(`Thank you, ${name}! Your message has been sent to Ts. Shahfiq.`);
+    });
+  </script>
+</body>
+</html>
